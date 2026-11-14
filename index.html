@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Something For You ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #35203f, #100d1c 65%);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    padding: 25px;
+}
+
+.container {
+    width: 100%;
+    max-width: 550px;
+    text-align: center;
+    padding: 40px 25px;
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 25px;
+    background: rgba(255,255,255,.06);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 50px rgba(255,100,180,.12);
+    position: relative;
+    z-index: 2;
+}
+
+.heart {
+    font-size: 55px;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(38px, 9vw, 52px);
+    color: #ffb6d9;
+    margin: 20px 0;
+    font-weight: normal;
+}
+
+.subtitle {
+    color: #d7c8dc;
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 28px;
+}
+
+button {
+    background: linear-gradient(135deg, #ff76ac, #b66bce);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: .3s;
+    box-shadow: 0 5px 25px rgba(255,100,180,.25);
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(255,100,180,.4);
+}
+
+#message {
+    display: none;
+    margin-top: 30px;
+    color: #f5e8f2;
+    line-height: 2;
+    font-size: 14px;
+    animation: appear 1s ease;
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.signature {
+    margin-top: 25px;
+    font-family: 'Great Vibes', cursive;
+    font-size: 30px;
+    color: #ffacd2;
+}
+
+.floating-heart {
+    position: fixed;
+    bottom: -30px;
+    color: #ff8dbb;
+    opacity: .65;
+    animation: floatUp linear forwards;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.footer {
+    margin-top: 30px;
+    font-size: 11px;
+    color: #a99aaa;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="heart">❤️</div>
+
+    <h1>Something for You</h1>
+
+    <p class="subtitle">
+        There are some things that are easier to write
+        than to say out loud.
+        So I made this little place for them.
+    </p>
+
+    <button onclick="revealMessage()" id="openBtn">
+        Open my little letter 💌
+    </button>
+
+    <div id="message">
+
+        <p>
+            Summer, I don't know how to put every feeling
+            into words, but I wanted you to know something.
+        </p>
+
+        <br>
+
+        <p>
+            I'm genuinely glad I gathered the courage
+            to tell you how I feel.
+            I don't expect anything from you,
+            and I don't want you to feel pressured.
+        </p>
+
+        <br>
+
+        <p>
+            I respect your situation and your feelings.
+            Take your time, focus on yourself,
+            and don't ever feel that you owe me an answer.
+        </p>
+
+        <br>
+
+        <p>
+            I just hope you keep smiling,
+            keep being yourself,
+            and remember that you are appreciated.
+            If u ever need me i am always there for u.
+        </p>
+
+        <br>
+
+        <p>
+            No pressure. No expectations.
+            Just a little message from someone
+            who genuinely cares about you. ❤️
+        </p>
+
+        <div class="signature">
+            With care ❤️
+        </div>
+
+    </div>
+
+    <div class="footer">
+        Made with a little code and a lot of feelings from my sidee.
+    </div>
+
+</div>
+
+<script>
+function revealMessage() {
+    const message = document.getElementById("message");
+    const button = document.getElementById("openBtn");
+
+    message.style.display = "block";
+    button.style.display = "none";
+}
+
+function createHeart() {
+    const heart = document.createElement("div");
+
+    heart.className = "floating-heart";
+    heart.innerHTML = Math.random() > 0.5 ? "❤" : "♡";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (12 + Math.random() * 20) + "px";
+    heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 10000);
+}
+
+setInterval(createHeart, 600);
+</script>
+
+</body>
+</html>
